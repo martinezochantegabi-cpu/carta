@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pista de Fuego · Tarjeta sorpresa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Barlow:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="card">
+
+  <header class="top">
+    <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M32 3c4 15 19 21 19 38 0 12-8 20-19 20S13 53 13 41c0-8 5-13 8-19 1 6 4 8 7 8-2-11 0-20 4-27z" fill="#e52b1f"/>
+      <path d="M32 24c3 9 11 12 11 21 0 7-5 11-11 11s-11-4-11-11c0-5 3-8 5-11 1 3 3 4 4 4-1-6 0-10 2-14z" fill="#ffc72c"/>
+    </svg>
+    <div>
+      <h1>Pista de Fuego</h1>
+      <p>Lleva el carrito hasta la meta y descubre tu sorpresa.</p>
+    </div>
+    <span class="tag">Edición especial</span>
+  </header>
+
+  <section class="stage">
+    <div class="hud">
+      <div class="bar"><i id="fill"></i></div>
+      <span id="pct">0%</span>
+    </div>
+
+    <svg id="scene" viewBox="0 0 1000 420" role="img" aria-label="Pista naranja con un carrito azul rumbo a la meta">
+      <defs>
+        <pattern id="check" width="20" height="20" patternUnits="userSpaceOnUse">
+          <rect width="20" height="20" fill="#fff"/>
+          <rect width="10" height="10" fill="#111"/>
+          <rect x="10" y="10" width="10" height="10" fill="#111"/>
+        </pattern>
+        <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#5b97ff"/>
+          <stop offset="1" stop-color="#1547c9"/>
+        </linearGradient>
+        <linearGradient id="fl" x1="1" y1="0" x2="0" y2="0">
+          <stop offset="0" stop-color="#ffd84a"/>
+          <stop offset=".55" stop-color="#ff6a13"/>
+          <stop offset="1" stop-color="#e52b1f" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+
+      <g id="stars"></g>
+      <path d="M120 56a34 34 0 1 0 0 68a27 27 0 1 1 0-68z" fill="#ffe9a8"/>
+
+      <!-- Ciudad al fondo -->
+      <path d="M0 420V290h50v-40h40v30h40v-70h50v90h60v-50h40v40h60v-80h50v60h50v-30h60v60h60v-90h50v70h50v-40h60v50h60v-60h40v80h180V420z" fill="#1a1f4d"/>
+      <g fill="#ffc72c" opacity=".75">
+        <rect x="110" y="230" width="6" height="8"/><rect x="236" y="262" width="6" height="8"/>
+        <rect x="392" y="240" width="6" height="8"/><rect x="560" y="250" width="6" height="8"/>
+        <rect x="672" y="222" width="6" height="8"/><rect x="798" y="262" width="6" height="8"/>
+        <rect x="880" y="232" width="6" height="8"/>
+      </g>
+      <rect y="395" width="1000" height="25" fill="#0a0d24"/>
+
+      <!-- Soportes, pista y meta -->
+      <path d="M500 135V395M540 135V395M580 135V395" stroke="#2b3270" stroke-width="8"/>
+      <path id="track" d="M70 330H250C330 330 350 300 400 240C450 175 480 120 540 120C610 120 620 215 660 270C700 325 740 330 790 330H930" fill="none" stroke="#0a0d24" stroke-width="34" stroke-linecap="round"/>
+      <path d="M70 330H250C330 330 350 300 400 240C450 175 480 120 540 120C610 120 620 215 660 270C700 325 740 330 790 330H930" fill="none" stroke="#ff6a13" stroke-width="26" stroke-linecap="round"/>
+      <path d="M70 330H250C330 330 350 300 400 240C450 175 480 120 540 120C610 120 620 215 660 270C700 325 740 330 790 330H930" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="14 12" opacity=".85"/>
+      <path d="M890 330V200M970 330V200" stroke="#eef2fb" stroke-width="6"/>
+      <rect x="890" y="200" width="80" height="30" fill="url(#check)" stroke="#eef2fb" stroke-width="3"/>
+
+      <!-- Carrito -->
+      <g id="car">
+        <g id="flames"><path d="M-50-18L-118-28L-90-18L-128-12L-90-6L-116 4L-50-8Z" fill="url(#fl)"/></g>
+        <ellipse cx="5" cy="1" rx="56" ry="4" fill="#000" opacity=".3"/>
+        <path d="M-50-13v-10c0-4 3-6 8-7l14-3c6-8 14-13 24-13h18c8 0 15 5 21 12l16 4c6 1 9 4 9 8v9z" fill="url(#body)"/>
+        <path d="M-18-33c5-6 10-10 18-10h12c5 0 9 4 13 10z" fill="#d6ebff"/>
+        <path d="M5-43V-33" stroke="#1547c9" stroke-width="3"/>
+        <path d="M-44-20c10-6 26-8 44-6 12 1 24 3 34 8-12-1-22-1-34 1-16 2-32 1-44-3z" fill="#ffc72c"/>
+        <rect x="55" y="-26" width="5" height="4" fill="#fff4b0"/>
+        <g class="wheel"><circle cx="-30" cy="-11" r="11" fill="#12151c"/><circle cx="-30" cy="-11" r="5.5" fill="#d5dbea"/><path d="M-30-16v10M-35-11h10" stroke="#12151c" stroke-width="2"/></g>
+        <g class="wheel"><circle cx="34" cy="-11" r="11" fill="#12151c"/><circle cx="34" cy="-11" r="5.5" fill="#d5dbea"/><path d="M34-16v10M29-11h10" stroke="#12151c" stroke-width="2"/></g>
+      </g>
+    </svg>
+  </section>
+
+  <nav class="controls" aria-label="Controles del carrito">
+    <button class="b blue" data-a="back">Reversa</button>
+    <button class="b orange" data-a="go">Acelerar</button>
+    <button class="b fire" data-a="turbo">Turbo</button>
+    <button class="b ghost" data-a="reset">Reiniciar</button>
+  </nav>
+  <p class="tip">También puedes usar las flechas del teclado y la tecla T para el turbo.</p>
+
+  <div class="win" id="win" hidden>
+    <div class="win-in">
+      <div id="wf"></div>
+      <h2 id="wt"></h2>
+      <p class="para" id="wp"></p>
+      <p class="msg" id="wm"></p>
+      <p class="sig" id="ws"></p>
+      <button class="b orange" data-a="reset">Correr otra vez</button>
+    </div>
+  </div>
+  <canvas id="confetti"></canvas>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
